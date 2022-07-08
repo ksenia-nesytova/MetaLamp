@@ -1,25 +1,35 @@
 @font-face {
-	font-family: 'Conv_Montserrat-VariableFont_wght';
+	font-family: 'Montserrat';
 	src: url('../fonts/Montserrat-VariableFont_wght.woff') format('woff'), url('../fonts/Montserrat-VariableFont_wght.ttf') format('truetype'), url('../fonts/Montserrat-VariableFont_wght.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
 }
 
 /*Colors*/
-$dark-100: rgb(31, 32, 65);
-$dark-75: rgba(31, 32, 65, .75);
-$dark-50: rgba(31, 32, 65, .5);
-$dark-25: rgba(31, 32, 65, .25);
-$dark-5: rgba(31, 32, 65, .05);
+$clr-dark-100: rgb(31, 32, 65);
+$clr-dark-75: rgba(31, 32, 65, .75);
+$clr-dark-50: rgba(31, 32, 65, .5);
+$clr-dark-25: rgba(31, 32, 65, .25);
+$clr-dark-5: rgba(31, 32, 65, .05);
 
-$purple: rgba(188,156,255);
-$green: rgba(111,207,151);
-$primary-gradient: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-$input-border: rgba(31, 32, 65, 0.25);
+$clr-purple: rgba(188,156,255);
+$clr-green: rgba(111,207,151);
+$clr-primary-gradient: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+$clr-input-border: rgba(31, 32, 65, 0.25);
 
 
 // Font
 $font-main:'Montserrat';
+
+// font-weight
+$fw-normal: 400;
+$fw-bold: 700;
+
+// // font-size
+// $fs-default: ;
+// $fs-xl:;
+// $fs-l:;
+// $fs-s:;
+//
+
 
 
 * {
@@ -27,3 +37,147 @@ $font-main:'Montserrat';
   padding: 0;
   box-sizing: border-box;
   }
+
+body {
+  font-family: $font-main;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: $clr-dark-75;
+  font-weight: $fw-normal;
+}
+
+/*Typography*/
+
+h1,
+h2,
+h3 {
+  font-family: $font-main;
+  font-weight: $fw-bold;
+  color: $clr-dark-100;
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+}
+
+h2 {
+  font-size: 1.188rem;
+  line-height: 23px;
+}
+
+h3 {
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  text-transform: uppercase;
+}
+
+.input-default {
+  border: 1px solid $clr-input-border;
+  border-radius: 4px;
+}
+
+.input-default::placeholder {
+  color: $clr-dark-25;
+}
+
+.input-default:hover,
+.input-default:focus{
+  border-color: $clr-dark-50;
+}
+
+.page-header {
+  display: flex;
+  justify-content: center;
+  height: 70px;
+  background-color: white;
+}
+
+.page-header__body {
+  display: flex;
+  align-items: center;
+}
+
+.page-header__logo {
+width: 105.69px;
+height: 40px;
+left: 140px;
+top: 155px;
+}
+
+.navbar {
+  float: right;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  background: white;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+li {
+  color: #1F2041;
+  background: white;
+  display: block;
+  float: left;
+  padding: 1rem;
+  position: relative;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+li a {
+  color: #1F2041;
+}
+
+li:hover {
+  background: white;
+  cursor: pointer;
+}
+
+ul li ul {
+  background: white;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  left: 0;
+  display: none;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+ul li ul li {
+  clear: both;
+  width: 100%;
+}
+
+
+/* войти */
+.btn {
+  border-radius: 22px;
+  mix-blend-mode: darken;
+  border: 2px solid;
+}
+
+.page-header__btn--sign-in {
+border-image-source: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+color: #BC9CFF;
+}
+
+.page-header__btn--sign-up {
+background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+color: white;
+}
