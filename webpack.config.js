@@ -13,6 +13,7 @@ const stylesHandler = isProduction
 const config = {
   entry: "./src/index.js",
   output: {
+    filename: 'bundle.js',
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
@@ -22,12 +23,15 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/index.pug',
-      inject: false
+      template: './src/index.pug',
+      // inject: false
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'header.html',
+      template: './src/includes/header.pug',
+      // inject: false
     }),
 
-    // Add your plugins here
-    // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
   module: {
     rules: [
@@ -45,7 +49,8 @@ const config = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: "asset",
+        type: "asset/resource",
+        use: [ 'file-loader' ]
       },
       {
       test: /\.pug$/,
