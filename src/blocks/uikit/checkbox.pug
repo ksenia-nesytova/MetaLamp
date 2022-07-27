@@ -1,0 +1,5 @@
+mixin checkbox(params)
+  - const {name, items = []} = params;
+  each item in items
+    input(value = item.value name = name checked = item.checked type='checkbox')
+    label(for=item.value)=item.value
