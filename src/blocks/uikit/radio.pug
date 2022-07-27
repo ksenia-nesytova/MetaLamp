@@ -1,0 +1,5 @@
+mixin radio(params)
+  - const {name, radioBtns = []} = params;
+  each btn in radioBtns
+    input(value = btn.value name = name checked = btn.checked type='radio')
+    label(for=btn.value)=btn.value
