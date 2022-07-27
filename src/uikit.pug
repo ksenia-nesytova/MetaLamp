@@ -1,0 +1,36 @@
+h1 This one is the sub-section or widget title
+h2 Next one is the item title inside widgets
+h3 This is a label or CTA text
+p This is the body text which is used for most of the design, like paragraphs, lists, etc.
+
+| Text field
+input(type="text" placeholder="Email")
+
+mixin btn(text="click me", className, type='button')
+  button(class="btn " + className)= text
+
+
+- var isAnonymous = false
+unless isAnonymous
+  p 
+    a(href="#") Юлий Цезарь
+else 
+  +btn('Войти', 'page-header__btn--sign-in')
+  +btn('Зарегистрироваться', 'page-header__btn--sign-up')
+
+
+//- mixin btn(text="click me", className, type='button')
+//-   button(class=btn + className)= text
+//- 
+//- +btn(text, 'btn page-header__btn--sign-up')
+//- +btn("yoyoyo", "btn")
+//- +btn("yoyoyo", "btn")
+
+//- 
+//- ul
+//-   li
+//-     a(href='#') Услуги
+//-     +list('navbar__dropdown', "Услуга 1", "Услуга 2", "Услуга 3", "Услуга 4")
+//-   li
+//-     a(href='#') Соглашения
+//-     +list('navbar__dropdown', "Соглашение 1", "Соглашение 2", "Соглашение 3")

@@ -3,6 +3,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+
 
 const isProduction = process.env.NODE_ENV == "production";
 
@@ -23,13 +25,23 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './src/index.pug',
-      // inject: false
+      template: './src/pages/index.pug',
     }),
-    new HtmlWebpackPlugin({
-      filename: 'header.html',
-      template: './src/includes/header.pug',
-      // inject: false
+    // new HtmlWebpackPlugin({
+    //   filename: 'header.html',
+    //   template: './src/blocks/header/header.pug',
+    //   // inject: false
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'uikit.html',
+    //   template: './src/uikit.pug',
+    //   // inject: false
+    // }),
+    new CopyPlugin({
+      patterns: [
+        { from: "src/assets/images", to: "images/" },
+
+      ],
     }),
 
   ],
@@ -50,12 +62,13 @@ const config = {
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
         type: "asset/resource",
-        use: [ 'file-loader' ]
+        use: [ 'file-loader'],
       },
       {
-      test: /\.pug$/,
-      use: ['html-loader', 'pug-html-loader'],
-    }
+        test: /\.pug$/,
+        use: ['html-loader', 'pug-html-loader', ],
+      },
+
 
       // Add your rules for custom modules here
       // Learn more about loaders from https://webpack.js.org/loaders/
